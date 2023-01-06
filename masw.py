@@ -531,6 +531,17 @@ class masw:
 
         return mejor, mejor_eval, marcador
 
+    def inversion_function(fnc):
+        def inner(parameters):
+            h = parameters[0]
+            alpha = parameters[1]
+            beta = parameters[2]
+            rho = parameters[3]
+            return self.theoretical_dispersion_curve(c_test, h, alpha, beta, rho, n, lambda_curve0)
+        return inner
+
+
+
     #def inversion(self, c_test, h, alpha, beta, rho, n, up_low_boundaries):
         #Calcule la curva de dispersión teórica para el conjunto actual de parámetros del modelo
         #c_t,lambda_t = self.theoretical_dispersion_curve(c_test,h,alpha,beta,rho,n)
